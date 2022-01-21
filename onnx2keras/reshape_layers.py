@@ -375,7 +375,7 @@ def convert_squeeze(node, params, layers, lambda_func, node_name, keras_name):
 
     input_0 = ensure_tf_type(layers[node.input[0]], name="%s_const" % keras_name)
 
-    def target_layer(x, axis):
+    def target_layer(x, axis=None):
         from tensorflow import keras
         return keras.backend.squeeze(x, None)
 
