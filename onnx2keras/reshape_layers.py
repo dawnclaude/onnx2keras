@@ -374,9 +374,10 @@ def convert_squeeze(node, params, layers, lambda_func, node_name, keras_name):
         assert AttributeError('More than 1 input for squeeze layer.')
 
     input_0 = ensure_tf_type(layers[node.input[0]], name="%s_const" % keras_name)
-    def target_layer(x):
+
+    def target_layer(x, axis):
         from tensorflow import keras
-        return keras.backend.squeeze(x)
+        return keras.backend.squeeze(x, None)
 
     lambda_layer = keras.layers.Lambda(target_layer, name=keras_name)
     layers[node_name] = lambda_layer(input_0)
