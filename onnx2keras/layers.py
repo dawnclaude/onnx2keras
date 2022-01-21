@@ -28,6 +28,7 @@ AVAILABLE_CONVERTERS = {
     'Exp': convert_exp,
     'Log': convert_log,
     'Softmax': convert_softmax,
+    'LogSoftmax': convert_logsoftmax,
     'PRelu': convert_prelu,
     'ReduceMax': convert_reduce_max,
     'ReduceSum': convert_reduce_sum,
